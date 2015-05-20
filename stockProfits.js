@@ -9,7 +9,9 @@
 
 var arr = [100, 102, 105, 103, 101, 107, 103, 102, 97, 100] //Expected output = $7 (buy at $100 at arr[0], sell at $107 at arr[5])
 
-var negArr = [100, 98, 95, 92, 91, 90, 89, 85, 81] //Expected output = -$1 (buy at $92 at arr[3], sell at $91 at arr[4])
+var negArr = [100, 98, 95, 92, 91, 90, 89, 85, 81] //Expected output = -$1 (buy at $92 at negArr[3], sell at $91 at negArr[4])
+
+var arr2 = [10, 60, 5, 54, 0, 53] //Expect output = $53 (buy at 0 at arr2[5], sell at $53 at arr[6])
 
 // Naive solution would be to run this in exponential time: Running one for-loop within another to find the highest possible profit.
   // Exponential time doesn't seem like a very optimized soution, so I'm going to skip it for now.
@@ -28,14 +30,12 @@ var getBestProfit = function(arr) {
         if (result < arr[i] - currentLowest) {
           result = arr[i] - currentLowest;
         }
-        if (currentLowest > arr[i]) {
-          currentLowest = arr[i];
-        }
-      } else if (!result || result < arr[i] - currentLowest) {
+      }
+      if (!result || result < arr[i] - currentLowest) {
         result = arr[i] - currentLowest;
-        if (currentLowest > arr[i]) {
-          currentLowest = arr[i];
-        }
+      }
+      if (currentLowest > arr[i]) {
+        currentLowest = arr[i];
       }
         // If the new number is lower than the 'lowest' number, we still set the profit and re-start with this new lowest number.
         // If the new number is higher than the 'lowest' number, we should place the difference as the current profit.
@@ -43,3 +43,6 @@ var getBestProfit = function(arr) {
   // At the end of this, it should return that result variable
   return result;
 }
+
+result = 50
+currentLowest = 10
