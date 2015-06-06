@@ -1,0 +1,3 @@
+var findRotationPoint = function(array) {
+
+}
