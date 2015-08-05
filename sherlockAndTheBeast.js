@@ -29,22 +29,46 @@ function sherlockAndTheBeast(string) {
   }
 
   function checkNumber(number) {
-    if (number > 3) {
-      return -1;
+    // Start building a string
+    var str = '';
+
+    // Store the modulo of n % 3 and n % 5
+    var modThree = n % 3;
+    var modFive = n % 5;
+
+    // If the number of times 5 appears is divisible by 3,
+    if (modThree === 0) {
+      str += buildString(3, n);
     } else {
-      if (n % 3 === 0) {
-        buildString(5, number);
-      } else if (n % 5 === 0) {
-        buildString(3, number);
+      // If n % 3 returns a remainder, let's check to see if that remainder is divisible by 5
+      if (modThree % 5 === 0) {
+        // build a string of n length consisting of 5s until there's a remainder, and use the remaining slots for 3s
       }
     }
+
+    if (modFive === 0) {
+      // build a string consisting of all 3s
+    } else {
+      if (modFive % 3 === 0) {
+        // build a string of n length consisting of 3s until there's a remainder, and use the remaining slots for 3s
+
+          // EDGE CASE - Will there EVER be a situation other than a string of all threes where threes come before fives?
+      }
+    }
+
+    // At the end, we'll return -1 if none of these works
   }
 
-  // Add a large number of X
-  function buildString(number, length) {
-    var string = '';
-    while (length) {
-      string += number;
+  // Function to build our string.
+
+  function buildString(value, number, currentString) {
+    currentString = currentString || '';
+
+    while (number--) {
+      currentString += value;
     }
+
+    return currentString;
   }
+
 }
