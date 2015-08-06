@@ -30,33 +30,29 @@ function sherlockAndTheBeast(string) {
 
   function checkNumber(number) {
     // Start building a string
-    var str = '';
+    var str;
 
     // Store the modulo of n % 3 and n % 5
     var modThree = n % 3;
     var modFive = n % 5;
 
-    // If the number of times 5 appears is divisible by 3,
-    if (modThree === 0) {
-      str += buildString(3, n);
-    } else {
-      // If n % 3 returns a remainder, let's check to see if that remainder is divisible by 5
+    if (!str && modThree === 0) {
       if (modThree % 5 === 0) {
         // build a string of n length consisting of 5s until there's a remainder, and use the remaining slots for 3s
+      } else {
+        str = buildString(3, n);
       }
-    }
-
-    if (modFive === 0) {
-      // build a string consisting of all 3s
-    } else {
+    } else if (!str && modFive === 0) {
       if (modFive % 3 === 0) {
         // build a string of n length consisting of 3s until there's a remainder, and use the remaining slots for 3s
 
           // EDGE CASE - Will there EVER be a situation other than a string of all threes where threes come before fives?
+      } else {
+        // Build a string normally with just threes
       }
+    } else {
+      str = -1;
     }
-
-    // At the end, we'll return -1 if none of these works
   }
 
   // Function to build our string.
@@ -70,5 +66,7 @@ function sherlockAndTheBeast(string) {
 
     return currentString;
   }
+
+
 
 }
