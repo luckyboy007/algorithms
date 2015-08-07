@@ -36,17 +36,27 @@ function sherlockAndTheBeast(string) {
     var modThree = n % 3;
     var modFive = n % 5;
 
+    var numberOfFives;
+    var numberOfThrees;
+
     if (!str && modThree === 0) {
       if (modThree % 5 === 0) {
-        // build a string of n length consisting of 5s until there's a remainder, and use the remaining slots for 3s
+        numberOfFives = Math.floor(n/5);
+        numberOfThrees = n - numberOfFives;
+
+        str = buildString(5, numberOfFives) + buildString(3, numberOfThrees);
       } else {
-        str = buildString(3, n);
+        str = buildString(5, n);
       }
     } else if (!str && modFive === 0) {
       if (modFive % 3 === 0) {
         // build a string of n length consisting of 3s until there's a remainder, and use the remaining slots for 3s
+        numberOfThress = Math.floor(n/3);
+        numberOfFives = n - numberOfThrees;
 
-          // EDGE CASE - Will there EVER be a situation other than a string of all threes where threes come before fives?
+        str = buildString()
+
+        // EDGE CASE - Will there EVER be a situation other than a string of all threes where threes come before fives?
       } else {
         // Build a string normally with just threes
       }
@@ -57,8 +67,8 @@ function sherlockAndTheBeast(string) {
 
   // Function to build our string.
 
-  function buildString(value, number, currentString) {
-    currentString = currentString || '';
+  function buildString(value, number) {
+    var currentString = '';
 
     while (number--) {
       currentString += value;
