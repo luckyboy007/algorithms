@@ -1,17 +1,31 @@
 // Given an array_of_ints, find the highest_product you can get from three of the integers.
 
 var highestOfThree = function(arr) {
-  // Sort the array
-  var sortedArr = arr.sort(function(a, b) {
-    return a - b;
-  })
+  // No need to sort the array. We'll iterate.
+  // Let's store the highest product of three:
+  var highest = 1;
 
-  // If any of the items are less than
-  // Keep only the last three (the largest three)
-  sortedArr = sortedArr.slice(arr.length-3)
+  // Now, we'll also store the lowest non-negative number
+  var lowestNonNegative;
 
-  // Return the product of all three.
-  return sortedArr.reduce(function(a, b){
-    return a * b;
+  // We'll also store the lowest negative number
+  var lowestNegative;
+
+  // Additionally, a counter to make sure we're at exactly three numbers
+  var counter = 0;
+
+  arr.forEach(function(elem) {
+    if (counter > 3) {
+      highest *= elem;
+      if ((!lowestNonNegative && elem >= 0) || (lowestNonNegative < elem && elem >= 0)) {
+        lowestNonNegative = elem;
+      }
+      if (!lowestNegative && elem < 0) {
+        lowestNegative = elem;
+      }
+      conter++;
+    } else {
+      if ()
+    }
   })
 }
