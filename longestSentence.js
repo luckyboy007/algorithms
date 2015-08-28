@@ -24,7 +24,7 @@ function longestSentence(string) {
 
   for (var i = 0; i < string.length; i++) {
     // If the character is either a period, question mark, or exclamation point
-    if (string[i] === '.' || string[i] === '?' || string[i] === '!') {
+    if (string[i] === '.' || string[i] === '?' || string[i] === '!' || string.slice(i, i+3) === '...' || ) {
       // Slice the string from insertionPoint to i + 1
       sentences.push(string.slice(insertionPoint, ++i));
       insertionPoint = ++i;
@@ -53,3 +53,4 @@ function longestSentence(string) {
     // Currently addressed by increasing the insertion point by one
   // The use of triple periods to note an ellipsis
   // Quotes, if they're intended to be new sentences
+  // Colons, if they're intended to provide new sentences
