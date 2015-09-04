@@ -23,3 +23,20 @@ var getBestProfit = function(arr) {
     }
   return result;
 }
+
+// Refactoring without looking at code above.
+// Approach:
+  // Try and do this in one iteration
+  // Keep track of the current lowest profit,
+
+var stockProfits = function(array) {
+  var currentLowest = array[0];
+  var bestProfit = array[1] - currentLowest;
+
+  for (var i = 1; i < array.length; i++) {
+    bestProfit = Math.max(bestProfit, array[i] - currentLowest);
+    currentLowest = Math.min(currentLowest, array[i]);
+  }
+
+  return bestProfit;
+}
