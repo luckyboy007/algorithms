@@ -22,7 +22,7 @@ var getBestProfit = function(arr) {
       }
     }
   return result;
-}
+};
 
 // Refactoring without looking at code above.
 // Approach:
@@ -39,4 +39,30 @@ var stockProfits = function(array) {
   }
 
   return bestProfit;
-}
+};
+
+// Refactoring without looking at any of thos code
+// Approach:
+  // Iterate backwards
+  // Linear time
+  // Constant space
+
+var getMaxProfit = function(stockPriceArray) {
+  // Store the current largest number, start it off as the lowest possible number
+  var currentHighest = Number.NEGATIVE_INFINITY;
+  // Set the greatest profit possible to the lowest possible number
+  var greatestProfit = Number.NEGATIVE_INFINITY;
+
+  // Iterate BACKWARDS in the array
+  for (var i = stockPriceArray.length - 1; i >= 0; i--) {
+    if (currentHighest - stockPriceArray[i] > greatestProfit) {
+      greatestProfit = currentHighest - stockPriceArray[i];
+    }
+
+    if (stockPriceArray[i] > currentHighest) {
+      currentHighest = stockPriceArray[i];
+    }
+  }
+
+  return greatestProfit;
+};
