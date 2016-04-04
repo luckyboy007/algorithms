@@ -44,8 +44,10 @@ var stockProfits = function(array) {
 // Refactoring without looking at any of thos code
 // Approach:
   // Iterate backwards
-  // Linear time
-  // Constant space
+    // Compare the current greatest profit to the difference between the current highest number and the current number from iteration, set the greatest profit accordingly
+    // Additionally, compare the current highest number to the current number from iteration and set the current highest number accordingly
+  // This is doable in linear time
+  // The number of variables tracked do not scale with input, so this is also constant space
 
 var getMaxProfit = function(stockPriceArray) {
   // Store the current largest number, start it off as the lowest possible number
